@@ -98,34 +98,10 @@
     <p class="success" id="successMsg">✅ Registration Submitted!</p>
   </div>
 
-  <script>
-    const form = document.getElementById("regForm");
-    const successMsg = document.getElementById("successMsg");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const data = {
-        name: document.getElementById("name").value,
-        age: document.getElementById("age").value,
-        ign: document.getElementById("ign").value,
-        id: document.getElementById("id").value,
-        contact: document.getElementById("contact").value
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbw4TgCtxAte-cictCJ6byoTKlEUFEoRR5scQLC6CZnfthGBPryk253Zj8t2crebO4Qa/exec", {
-        method: "POST",
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(res => {
-        if(res.result === "success"){
-          successMsg.style.display = "block";
-          form.reset();
-        }
-      })
-      .catch(err => alert("Error: " + err));
-    });
-  </script>
+ <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
