@@ -65,12 +65,32 @@
     button:hover {
       opacity: 0.8;
     }
-    .success {
+
+    /* Popup Box */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #111;
+      padding: 20px 30px;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
       display: none;
       text-align: center;
-      margin-top: 15px;
-      color: #00ff99;
-      font-weight: bold;
+      z-index: 1000;
+      border: 3px solid;
+      border-image: linear-gradient(90deg, red, lime, blue, cyan, magenta) 1;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      animation: rgbBorder 3s linear infinite;
+    }
+
+    @keyframes rgbBorder {
+      0% { border-image: linear-gradient(90deg, red, lime, blue) 1; }
+      50% { border-image: linear-gradient(90deg, magenta, cyan, yellow) 1; }
+      100% { border-image: linear-gradient(90deg, red, lime, blue) 1; }
     }
   </style>
 </head>
@@ -84,6 +104,9 @@
       <label for="age">Age</label>
       <input type="number" id="age" name="age" min="10" max="99" required>
 
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
       <label for="ign">In-Game Name</label>
       <input type="text" id="ign" name="ign" required>
 
@@ -95,12 +118,14 @@
 
       <button type="submit">Register</button>
     </form>
-    <p class="success" id="successMsg">✅ Registration Submitted!</p>
   </div>
+
+  <!-- Popup Message -->
+  <div class="popup" id="popupBox">✅ Registration Completed!</div>
 
   <script>
     const form = document.getElementById("regForm");
-    const successMsg = document.getElementById("successMsg");
+    const popup = document.getElementById("popupBox");
 
     form.addEventListener("submit", function(e) {
       e.preventDefault();
@@ -108,6 +133,7 @@
       const data = {
         name: document.getElementById("name").value,
         age: document.getElementById("age").value,
+        email: document.getElementById("email").value,
         ign: document.getElementById("ign").value,
         id: document.getElementById("id").value,
         contact: document.getElementById("contact").value
@@ -123,12 +149,17 @@
       })
       .then(res => res.json())
       .then(res => {
-        successMsg.style.display = "block";
+        popup.style.display = "block";
         form.reset();
+
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 5000);
       })
       .catch(err => alert("Network Error: " + err));
     });
   </script>
 </body>
 </html>
+
 
