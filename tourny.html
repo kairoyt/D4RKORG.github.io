@@ -6,81 +6,199 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>D4RK ORG Tournaments</title>
+  <!-- 
+    - primary meta tags
+  -->
+  <title>D4RK ORG</title>
+  <meta name="title" content="Unigine - Epic Games Made For True Gamers!">
+  <meta name="description" content="This is an esports and gaming html template made by codewithsadee">
 
+  <!-- 
+    - favicon
+  -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-banner-bg.png">
 
 </head>
 
-<body>
+<body id="top">
 
   <!-- 
-    - #HEADER (minimal, only hamburger for now)
+    - #HEADER
   -->
+
   <header class="header active" data-header>
     <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.png" width="100" height="43" alt="unigine home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link" data-nav-link>home</a>
+          </li>
+
+        </ul>
+      </nav>
+
       <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
         <span class="line line-1"></span>
         <span class="line line-2"></span>
         <span class="line line-3"></span>
       </button>
+
     </div>
   </header>
+
+
 
   <main>
     <article>
 
       <!-- 
-        - #UPCOMING TOURNAMENTS ONLY
+        - #UPCOMING
       -->
+
       <section class="section upcoming" aria-labelledby="upcoming-label" id="tournament">
         <div class="container">
 
           <p class="section-subtitle" id="upcoming-label" data-reveal="bottom">
-            Upcoming Matches
+            
           </p>
 
           <h2 class="h2 section-title" data-reveal="bottom">
-            D4RK ORG <br> BGMI <span class="span">Tournaments</span>
+             <br> D4RK ORG <br> BGMI <span class="span">Tournaments</span>
           </h2>
 
           <p class="section-text" data-reveal="bottom">
-            Our success is to make you a perfect competitive player in BGMI eSports.
+            BGMI Tournament Registration page.
           </p>
 
           <ol class="upcoming-list">
 
             <li class="upcoming-item">
+
               <div class="upcoming-card left has-before" data-reveal="left">
+
                 <img src="./assets/images/team-logo-1.png" width="86" height="81" loading="lazy"
                   alt="Purple Death Cadets" class="card-banner">
-                <h3 class="h3 card-title">GAME OVER</h3>
-                <a href="registration.html" class="btn register-btn">Register Now</a>
-              </div>
-            </li>
 
-            <li class="upcoming-item">
-              <div class="upcoming-card left has-before" data-reveal="left">
+                <h3 class="h3 card-title">BGMI GAME OVER SERIES</h3>
+
+                <div class="card-meta">
+                    <a href="gameover.html">Register Now</a>
+                </div>
+
+              </div>
+
+              <div class="upcoming-time" data-reveal="bottom">
+                <time class="time" datetime="10:00"></time>
+
+                <time class="date" datetime="2022-05-25"></time>
+
+              </div>
+
+              <div class="upcoming-card right has-before" data-reveal="right">
+
                 <img src="./assets/images/team-logo-2.png" width="86" height="81" loading="lazy"
                   alt="Trigger Brain Squad" class="card-banner">
+
                 <h3 class="h3 card-title">Coming Soon</h3>
-                <a href="registration.html" class="btn register-btn">Register Now</a>
+
+                <div class="card-meta">
+                    <a href="gameover.html">Register Now</a>
+                </div>
+
               </div>
+
             </li>
 
             <li class="upcoming-item">
+
               <div class="upcoming-card left has-before" data-reveal="left">
+
                 <img src="./assets/images/team-logo-3.png" width="86" height="81" loading="lazy"
                   alt="The Black Hat Hackers" class="card-banner">
+
                 <h3 class="h3 card-title">Coming Soon</h3>
-                <a href="registration.html" class="btn register-btn">Register Now</a>
+
+                <div class="card-meta"><a href="gameover.html">Register Now</a></div>
+
               </div>
+
+              <div class="upcoming-time" data-reveal="bottom">
+                <time class="time" datetime="12:30"></time>
+
+                <time class="date" datetime="2024-01-10"></time>
+
+              </div>
+
+              <div class="upcoming-card right has-before" data-reveal="right">
+
+                <img src="./assets/images/team-logo-4.png" width="86" height="81" loading="lazy"
+                  alt="Your Worst Nightmare" class="card-banner">
+
+                <h3 class="h3 card-title">Coming Soon</h3>
+
+                <div class="card-meta"><a href="gameover.html">Register Now</a></div>
+
+              </div>
+
+            </li>
+
+            <li class="upcoming-item">
+
+              <div class="upcoming-card left has-before" data-reveal="left">
+
+                <img src="./assets/images/team-logo-5.png" width="86" height="81" loading="lazy"
+                  alt="Witches And Quizards" class="card-banner">
+
+                <h3 class="h3 card-title">Coming Soon</h3>
+
+                <div class="card-meta"><a href="gameover.html">Register Now</a></div>
+
+              </div>
+
+              <div class="upcoming-time" data-reveal="bottom">
+                <time class="time" datetime="04:20"></time>
+
+                <time class="date" datetime="2024-12-15"></time>
+
+              </div>
+
+              <div class="upcoming-card right has-before" data-reveal="right">
+
+                <img src="./assets/images/team-logo-6.png" width="86" height="81" loading="lazy"
+                  alt="Resting Bitch Faces" class="card-banner">
+
+                <h3 class="h3 card-title">Coming Soon</h3>
+
+                <div class="card-meta"><a href="gameover.html">Register Now</a></div>
+
+              </div>
+
             </li>
 
           </ol>
@@ -88,21 +206,149 @@
         </div>
       </section>
 
-    </article>
-  </main>
-
   <!-- 
-    - #FOOTER (optional, keep your existing footer)
+    - #FOOTER
   -->
+
   <footer class="footer">
+
     <div class="section footer-top">
       <div class="container">
-        <p class="footer-text">Our success is to make you a perfect competitive player in BGMI eSports.</p>
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.png" width="150" height="73" loading="lazy" alt="Unigine logo">
+          </a>
+
+          <p class="footer-text">
+            Our success is to make you a perfect competitve player in BGMI eSports.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list">
+
+          <p class="title footer-list-title has-after">Usefull Links</p>
+
+          <ul>
+
+            <li>
+              <a href="#tournament" class="footer-link">Tournaments</a>
+            </li>
+
+            <li>
+              <a href="aboutus.html" class="footer-link">About Us</a>
+            </li>
+
+            <li>
+              <a href="p&p.html" class="footer-link">Privacy and Policy</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-list" id="CUS">
+
+          <p class="title footer-list-title has-after">Contact Us</p>
+
+          <div class="contact-item">
+            <span class="span">Discord:</span>
+
+            <address class="contact-link">
+              @rexxkairo
+            </address>
+          </div>
+
+          <div class="contact-item">
+            <span class="span">EMAIL:</span>
+
+            <a href="mailto:Info@unigine.com" class="contact-link">orgdrk@gmail.com</a>
+          </div>
+
+        </div>
+
       </div>
     </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 D4RK ORG All Rights Reserved.
+        </p>
+
+      </div>
+    </div>
+
   </footer>
 
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - #CUSTOM CURSOR
+  -->
+
+  <div class="cursor" data-cursor></div>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
   <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
