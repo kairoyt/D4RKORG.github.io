@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGMI Tournament Registration</title>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: url('./assets/images/gameover.jpg') no-repeat center center fixed;;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .logo {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+    .form-container {
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid #39ff14;
+        border-radius: 12px;
+        padding: 25px;
+        width: 100%;
+        max-width: 450px;
+        box-shadow: 0 0 20px #39ff14;
+    }
+    .form-container h2 {
+        text-align: center;
+        color: #39ff14;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px #39ff14;
+    }
+    label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #00eaff;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 6px;
+        background: #111;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        border: 1px solid #00eaff;
+    }
+    input:focus {
+        border-color: #39ff14;
+        box-shadow: 0 0 10px #39ff14;
+    }
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #39ff14, #00eaff);
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #000;
+        transition: 0.3s;
+    }
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #39ff14;
+    }
+    .success {
+        display: none;
+        margin-top: 15px;
+        text-align: center;
+        color: #39ff14;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<!-- Logo -->
+<img src="./assets/images/team-logo-1.png" alt="Tournament Logo" class="logo">
+
+<!-- Registration Form -->
+<div class="form-container">
+    <h2>BGMI Tournament Registration</h2>
+    <form id="registrationForm">
+        <label>Team Name</label>
+        <input type="text" name="teamName" required>
+
+        <label>Player 1 (IGL)</label>
+        <input type="text" name="player1" required>
+
+        <label>Player 2</label>
+        <input type="text" name="player2" required>
+
+        <label>Player 3</label>
+        <input type="text" name="player3" required>
+
+        <label>Player 4</label>
+        <input type="text" name="player4" required>
+
+        <label>Phone Number</label>
+        <input type="tel" name="phone" pattern="[0-9]{10}" required>
+
+        <button type="submit">Register</button>
+    </form>
+    <div class="success">✅ Registration Successful!</div>
+</div>
+
+<script>
+    const form = document.getElementById('registrationForm');
+    const successMsg = document.querySelector('.success');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+            TeamName: form.teamName.value,
+            Player1: form.player1.value,
+            Player2: form.player2.value,
+            Player3: form.player3.value,
+            Player4: form.player4.value,
+            Phone: form.phone.value
+        };
+
+        fetch("https://sheetdb.io/api/v1/gg8wue6yta4qa", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ data: [formData] })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Success:", data);
+            successMsg.style.display = 'block';
+            form.reset();
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 3000);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("❌ There was an error submitting your registration.");
+        });
+    });
+</script>
+
+</body>
+</html>
