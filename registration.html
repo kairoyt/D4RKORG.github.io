@@ -1,156 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>BGMI Registration | D4RK ORG</title>  
-  <link rel="stylesheet" href="style.css">  
-  <style>  
-    body {  
-      font-family: Arial, sans-serif;  
-      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);  
-      margin: 0;  
-      padding: 0;  
-      display: flex;  
-      justify-content: center;  
-      align-items: center;  
-      min-height: 100vh;  
-      color: #fff;  
-    }  
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BGMI Registration | D4RK ORG</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
 
-    /* ✅ Success message (top sliding bar) */
-    #successBar {  
-      position: fixed;  
-      top: -60px;  
-      left: 50%;  
-      transform: translateX(-50%);  
-      background: #00ff99;  
-      color: #000;  
-      padding: 15px 30px;  
-      border-radius: 8px;  
-      font-weight: bold;  
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);  
-      opacity: 0;  
-      transition: all 0.5s ease;  
-      z-index: 1000;  
-    }  
-    #successBar.show {  
-      top: 20px;  
-      opacity: 1;  
-    }  
+    /* top sliding success bar */
+    #successBar {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00ff99;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+      opacity: 0;
+      transition: top 0.45s ease, opacity 0.45s ease;
+      z-index: 1000;
+    }
+    #successBar.show {
+      top: 20px;
+      opacity: 1;
+    }
 
-    .form-container {  
-      background: rgba(20,20,30,0.95);  
-      padding: 30px;  
-      border-radius: 15px;  
-      max-width: 400px;  
-      width: 100%;  
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);  
-      border: 1px solid rgba(255,255,255,0.1);  
-    }  
-    .form-container h2 {  
-      text-align: center;  
-      margin-bottom: 20px;  
-      background: linear-gradient(90deg, #ff00cc, #00ffff);  
-      -webkit-background-clip: text;  
-      -webkit-text-fill-color: transparent;  
-      font-size: 26px;  
-    }  
-    label {  
-      display: block;  
-      margin: 8px 0 5px;  
-      font-size: 14px;  
-      color: #bbb;  
-    }  
-    input {  
-      width: 100%;  
-      padding: 12px;  
-      border-radius: 8px;  
-      border: none;  
-      margin-bottom: 15px;  
-      background: #2a2a3c;  
-      color: #fff;  
-      font-size: 14px;  
-    }  
-    button {  
-      width: 100%;  
-      padding: 12px;  
-      background: linear-gradient(90deg, #ff00cc, #00ffff);  
-      border: none;  
-      color: white;  
-      font-size: 16px;  
-      font-weight: bold;  
-      border-radius: 8px;  
-      cursor: pointer;  
-      transition: 0.3s;  
-    }  
-    button:hover {  
-      opacity: 0.8;  
-    }  
-  </style>  
-</head>  
-<body>  
+    .form-container {
+      background: rgba(20,20,30,0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff00cc, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 26px;
+    }
+    label {
+      display: block;
+      margin: 8px 0 5px;
+      font-size: 14px;
+      color: #bbb;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+      background: #2a2a3c;
+      color: #fff;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #ff00cc, #00ffff);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
 
-  <!-- ✅ Success bar -->
-  <div id="successBar">✅ Registration Successful!</div>  
+  <!-- sliding success bar -->
+  <div id="successBar">✅ Registration Successful!</div>
 
-  <div class="form-container">  
-    <h2>Join D4RK ORG</h2>  
-    <form id="regForm">  
-      <label for="name">Full Name</label>  
-      <input type="text" id="name" name="name" required>  
+  <div class="form-container">
+    <h2>Join D4RK ORG</h2>
+    <form id="regForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
 
-      <label for="age">Age</label>  
-      <input type="number" id="age" name="age" min="10" max="99" required>  
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" min="10" max="99" required>
 
-      <label for="ign">In-Game Name</label>  
-      <input type="text" id="ign" name="ign" required>  
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
 
-      <label for="id">BGMI ID</label>  
-      <input type="text" id="id" name="id" required>  
+      <label for="ign">In-Game Name</label>
+      <input type="text" id="ign" name="ign" required>
 
-      <label for="contact">Contact Number</label>  
-      <input type="tel" id="contact" name="contact" required>  
+      <label for="bgmi_id">BGMI ID</label>
+      <input type="text" id="bgmi_id" name="bgmi_id" required>
 
-      <button type="submit" id="registerBtn">Register</button>  
-    </form>  
-  </div>  
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" name="contact" required>
 
-  <script>  
-    const form = document.getElementById("regForm");  
-    const successBar = document.getElementById("successBar");  
+      <button type="submit" id="registerBtn">Register</button>
+    </form>
+  </div>
 
-    form.addEventListener("submit", function(e) {  
-      e.preventDefault();  
+  <script>
+    // Replace with your SheetDB API endpoint
+    const SHEETDB_API = "https://sheetdb.io/api/v1/jofon50m4oyz9";
 
-      const data = {  
-        name: document.getElementById("name").value,  
-        age: document.getElementById("age").value,  
-        ign: document.getElementById("ign").value,  
-        id: document.getElementById("id").value,  
-        contact: document.getElementById("contact").value  
-      };  
+    const form = document.getElementById("regForm");
+    const successBar = document.getElementById("successBar");
+    const registerBtn = document.getElementById("registerBtn");
 
-      // ✅ Show success instantly  
-      successBar.classList.add("show");  
-      setTimeout(() => {  
-        successBar.classList.remove("show");  
-      }, 5000); // fade away after 5 sec  
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-      form.reset();  
+      // collect and trim values
+      const data = {
+        name: document.getElementById("name").value.trim(),
+        age: document.getElementById("age").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        ign: document.getElementById("ign").value.trim(),
+        bgmi_id: document.getElementById("bgmi_id").value.trim(),
+        contact: document.getElementById("contact").value.trim()
+      };
 
-      // ✅ Send data to SheetDB in background  
-      fetch("https://sheetdb.io/api/v1/jofon50m4oyz9", {  
-        method: "POST",  
-        body: JSON.stringify({ data: data }),  
-        headers: {  
-          "Content-Type": "application/json"  
-        }  
-      })  
-      .then(res => res.json())  
-      .then(res => console.log("Saved:", res))  
-      .catch(err => console.error("Network Error:", err));  
-    });  
-  </script>  
-</body>  
+      // Instant UX feedback
+      successBar.classList.add("show");
+      setTimeout(() => successBar.classList.remove("show"), 5000);
+
+      // disable button to prevent double submits
+      registerBtn.disabled = true;
+      registerBtn.innerText = "Registering...";
+
+      // clear the form immediately so user sees it went through
+      form.reset();
+
+      // send to SheetDB in background (SheetDB expects { data: [ {...} ] })
+      try {
+        const resp = await fetch(SHEETDB_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: [data] })
+        });
+
+        // optional: inspect response for debugging
+        const json = await resp.json();
+        console.log("SheetDB response:", json);
+
+        // if SheetDB returns an error, it might still be non-OK; log status
+        if (!resp.ok) {
+          console.error("SheetDB returned non-OK status", resp.status, json);
+        }
+      } catch (err) {
+        console.error("Error saving to SheetDB:", err);
+      } finally {
+        // re-enable button
+        registerBtn.disabled = false;
+        registerBtn.innerText = "Register";
+      }
+    });
+  </script>
+</body>
 </html>
