@@ -1,199 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BGMI Tournament Registration</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BGMI Tournament Registration | D4RK ORG</title>
+  <style>
     body {
-        font-family: 'Poppins', sans-serif;
-        background: 
-            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('body-bg.jpg') no-repeat center center fixed;
-        background-size: cover;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+      flex-direction: column;
     }
 
-    /* Success Notification Bar */
-    .success {
-        position: fixed;
-        top: -60px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(90deg, #b026ff, #ff00ff);
-        color: #fff;
-        padding: 15px 30px;
-        border-radius: 0 0 8px 8px;
-        font-weight: bold;
-        font-size: 16px;
-        box-shadow: 0 0 15px #b026ff;
-        opacity: 0;
-        transition: all 0.5s ease;
-        z-index: 9999;
-        text-shadow: 0 0 8px #ff00ff;
+    /* top sliding success bar */
+    #successBar {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00ff99;
+      color: #000;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+      opacity: 0;
+      transition: top 0.45s ease, opacity 0.45s ease;
+      z-index: 1000;
     }
-    .success.show {
-        top: 0;
-        opacity: 1;
-        animation: pulseGlow 1s infinite alternate;
-    }
-
-    @keyframes pulseGlow {
-        from { box-shadow: 0 0 15px #b026ff, 0 0 30px #ff00ff; }
-        to { box-shadow: 0 0 25px #ff00ff, 0 0 50px #b026ff; }
+    #successBar.show {
+      top: 20px;
+      opacity: 1;
     }
 
     /* Logo */
     .logo {
-        max-width: 200px;
-        margin-bottom: 20px;
+      max-width: 180px;
+      margin-bottom: 15px;
     }
 
-    /* Form Container */
     .form-container {
-        background: rgba(0, 0, 0, 0.85);
-        border: 2px solid #b026ff;
-        border-radius: 12px;
-        padding: 25px;
-        width: 100%;
-        max-width: 450px;
-        box-shadow: 0 0 20px #b026ff;
+      background: rgba(20,20,30,0.95);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
     }
-
     .form-container h2 {
-        text-align: center;
-        color: #b026ff;
-        margin-bottom: 20px;
-        text-shadow: 0 0 10px #ff00ff;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ff00cc, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 26px;
     }
-
     label {
-        display: block;
-        margin-top: 15px;
-        font-weight: bold;
-        color: #ff00ff;
+      display: block;
+      margin: 8px 0 5px;
+      font-size: 14px;
+      color: #bbb;
     }
-
     input {
-        width: 100%;
-        padding: 10px;
-        margin-top: 5px;
-        border: none;
-        border-radius: 6px;
-        background: #111;
-        color: #fff;
-        font-size: 14px;
-        outline: none;
-        border: 1px solid #ff00ff;
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+      background: #2a2a3c;
+      color: #fff;
+      font-size: 14px;
     }
-
-    input:focus {
-        border-color: #b026ff;
-        box-shadow: 0 0 10px #b026ff;
-    }
-
-    /* Button */
     button {
-        margin-top: 20px;
-        width: 100%;
-        padding: 12px;
-        background: linear-gradient(90deg, #b026ff, #ff00ff);
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        color: #fff;
-        transition: 0.3s;
-        text-shadow: 0 0 5px #ff00ff;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #ff00cc, #00ffff);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
     }
-
-    button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 15px #b026ff, 0 0 30px #ff00ff;
+    button[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
-</style>
+  </style>
 </head>
 <body>
 
-<!-- Success Notification -->
-<div class="success">✅ Registration Successful!</div>
+  <!-- sliding success bar -->
+  <div id="successBar">✅ Registration Successful!</div>
 
-<!-- Logo -->
-<img src="team-logo-1.png" alt="Tournament Logo" class="logo">
+  <!-- Logo on top -->
+  <img src="your-logo.png" alt="Tournament Logo" class="logo">
 
-<!-- Registration Form -->
-<div class="form-container">
+  <div class="form-container">
     <h2>BGMI Tournament Registration</h2>
-    <form id="registrationForm">
-        <label>Team Name</label>
-        <input type="text" name="teamName" required>
+    <form id="regForm">
+      <label for="teamName">Team Name</label>
+      <input type="text" id="teamName" name="teamName" required>
 
-        <label>Player 1 (IGL)</label>
-        <input type="text" name="player1" required>
+      <label for="player1">Player 1 (IGL)</label>
+      <input type="text" id="player1" name="player1" required>
 
-        <label>Player 2</label>
-        <input type="text" name="player2" required>
+      <label for="player2">Player 2</label>
+      <input type="text" id="player2" name="player2" required>
 
-        <label>Player 3</label>
-        <input type="text" name="player3" required>
+      <label for="player3">Player 3</label>
+      <input type="text" id="player3" name="player3" required>
 
-        <label>Player 4</label>
-        <input type="text" name="player4" required>
+      <label for="player4">Player 4</label>
+      <input type="text" id="player4" name="player4" required>
 
-        <label>Phone Number</label>
-        <input type="tel" name="phone" pattern="[0-9]{10}" required>
+      <label for="contact">Contact Number</label>
+      <input type="tel" id="contact" name="contact" required>
 
-        <button type="submit">Register</button>
+      <button type="submit" id="registerBtn">Register</button>
     </form>
-</div>
+  </div>
 
-<script>
-    const form = document.getElementById('registrationForm');
-    const successMsg = document.querySelector('.success');
+  <script>
+    // Replace with your SheetDB API endpoint
+    const SHEETDB_API = "https://sheetdb.io/api/v1/jofon50m4oyz9";
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    const form = document.getElementById("regForm");
+    const successBar = document.getElementById("successBar");
+    const registerBtn = document.getElementById("registerBtn");
 
-        const formData = {
-            TeamName: form.teamName.value,
-            Player1: form.player1.value,
-            Player2: form.player2.value,
-            Player3: form.player3.value,
-            Player4: form.player4.value,
-            Phone: form.phone.value
-        };
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-        // Show success instantly
-        successMsg.classList.add('show');
+      // collect and trim values
+      const data = {
+        TeamName: document.getElementById("teamName").value.trim(),
+        Player1: document.getElementById("player1").value.trim(),
+        Player2: document.getElementById("player2").value.trim(),
+        Player3: document.getElementById("player3").value.trim(),
+        Player4: document.getElementById("player4").value.trim(),
+        Contact: document.getElementById("contact").value.trim()
+      };
 
-        // Hide after 5 seconds
-        setTimeout(() => {
-            successMsg.classList.remove('show');
-        }, 5000);
+      // Instant UX feedback
+      successBar.classList.add("show");
+      setTimeout(() => successBar.classList.remove("show"), 5000);
 
-        // Send data to SheetDB
-        fetch("https://sheetdb.io/api/v1/gg8wue6yta4qa", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ data: [formData] })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Success:", data);
-            form.reset();
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("❌ There was an error submitting your registration.");
+      // disable button to prevent double submits
+      registerBtn.disabled = true;
+      registerBtn.innerText = "Registering...";
+
+      // clear the form immediately so user sees it went through
+      form.reset();
+
+      // send to SheetDB in background
+      try {
+        const resp = await fetch(SHEETDB_API, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ data: [data] })
         });
-    });
-</script>
 
+        const json = await resp.json();
+        console.log("SheetDB response:", json);
+
+        if (!resp.ok) {
+          console.error("SheetDB returned non-OK status", resp.status, json);
+        }
+      } catch (err) {
+        console.error("Error saving to SheetDB:", err);
+      } finally {
+        registerBtn.disabled = false;
+        registerBtn.innerText = "Register";
+      }
+    });
+  </script>
 </body>
 </html>
