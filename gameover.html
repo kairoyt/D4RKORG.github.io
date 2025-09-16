@@ -9,7 +9,7 @@
         font-family: 'Poppins', sans-serif;
         background: 
             linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-            url('your-background.jpg') no-repeat center center fixed;
+            url('body-bg.jpg') no-repeat center center fixed;
         background-size: cover;
         color: #fff;
         display: flex;
@@ -25,20 +25,27 @@
         top: -60px;
         left: 50%;
         transform: translateX(-50%);
-        background: linear-gradient(90deg, #39ff14, #00eaff);
-        color: #000;
+        background: linear-gradient(90deg, #b026ff, #ff00ff);
+        color: #fff;
         padding: 15px 30px;
         border-radius: 0 0 8px 8px;
         font-weight: bold;
         font-size: 16px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        box-shadow: 0 0 15px #b026ff;
         opacity: 0;
         transition: all 0.5s ease;
         z-index: 9999;
+        text-shadow: 0 0 8px #ff00ff;
     }
     .success.show {
         top: 0;
         opacity: 1;
+        animation: pulseGlow 1s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+        from { box-shadow: 0 0 15px #b026ff, 0 0 30px #ff00ff; }
+        to { box-shadow: 0 0 25px #ff00ff, 0 0 50px #b026ff; }
     }
 
     /* Logo */
@@ -50,26 +57,26 @@
     /* Form Container */
     .form-container {
         background: rgba(0, 0, 0, 0.85);
-        border: 2px solid #39ff14;
+        border: 2px solid #b026ff;
         border-radius: 12px;
         padding: 25px;
         width: 100%;
         max-width: 450px;
-        box-shadow: 0 0 20px #39ff14;
+        box-shadow: 0 0 20px #b026ff;
     }
 
     .form-container h2 {
         text-align: center;
-        color: #39ff14;
+        color: #b026ff;
         margin-bottom: 20px;
-        text-shadow: 0 0 10px #39ff14;
+        text-shadow: 0 0 10px #ff00ff;
     }
 
     label {
         display: block;
         margin-top: 15px;
         font-weight: bold;
-        color: #00eaff;
+        color: #ff00ff;
     }
 
     input {
@@ -82,12 +89,12 @@
         color: #fff;
         font-size: 14px;
         outline: none;
-        border: 1px solid #00eaff;
+        border: 1px solid #ff00ff;
     }
 
     input:focus {
-        border-color: #39ff14;
-        box-shadow: 0 0 10px #39ff14;
+        border-color: #b026ff;
+        box-shadow: 0 0 10px #b026ff;
     }
 
     /* Button */
@@ -95,19 +102,20 @@
         margin-top: 20px;
         width: 100%;
         padding: 12px;
-        background: linear-gradient(90deg, #39ff14, #00eaff);
+        background: linear-gradient(90deg, #b026ff, #ff00ff);
         border: none;
         border-radius: 6px;
         font-size: 16px;
         font-weight: bold;
         cursor: pointer;
-        color: #000;
+        color: #fff;
         transition: 0.3s;
+        text-shadow: 0 0 5px #ff00ff;
     }
 
     button:hover {
         transform: scale(1.05);
-        box-shadow: 0 0 15px #39ff14;
+        box-shadow: 0 0 15px #b026ff, 0 0 30px #ff00ff;
     }
 </style>
 </head>
@@ -117,7 +125,7 @@
 <div class="success">✅ Registration Successful!</div>
 
 <!-- Logo -->
-<img src="your-logo.png" alt="Tournament Logo" class="logo">
+<img src="team-logo-1.png" alt="Tournament Logo" class="logo">
 
 <!-- Registration Form -->
 <div class="form-container">
