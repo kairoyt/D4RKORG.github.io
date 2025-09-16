@@ -1,166 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BGMI Registration | D4RK ORG</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      color: #fff;
-    }
-    .form-container {
-      background: rgba(20,20,30,0.95);
-      padding: 30px;
-      border-radius: 15px;
-      max-width: 400px;
-      width: 100%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #ff00cc, #00ffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 26px;
-    }
-    label {
-      display: block;
-      margin: 8px 0 5px;
-      font-size: 14px;
-      color: #bbb;
-    }
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 15px;
-      background: #2a2a3c;
-      color: #fff;
-      font-size: 14px;
-    }
-    button {
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff00cc, #00ffff);
-      border: none;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      opacity: 0.8;
-    }
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>BGMI Registration | D4RK ORG</title>  
+  <link rel="stylesheet" href="style.css">  
+  <style>  
+    body {  
+      font-family: Arial, sans-serif;  
+      background: linear-gradient(135deg, #0d0d0d, #1a1a2e);  
+      margin: 0;  
+      padding: 0;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+      min-height: 100vh;  
+      color: #fff;  
+    }  
 
-    /* Popup Box */
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #111;
-      padding: 20px 30px;
-      border-radius: 12px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      display: none;
-      text-align: center;
-      z-index: 1000;
-      border: 3px solid;
-      border-image: linear-gradient(90deg, red, lime, blue, cyan, magenta) 1;
-      box-shadow: 0 0 20px rgba(0,0,0,0.8);
-      animation: rgbBorder 3s linear infinite;
-    }
+    /* ✅ Success message (top sliding bar) */
+    #successBar {  
+      position: fixed;  
+      top: -60px;  
+      left: 50%;  
+      transform: translateX(-50%);  
+      background: #00ff99;  
+      color: #000;  
+      padding: 15px 30px;  
+      border-radius: 8px;  
+      font-weight: bold;  
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);  
+      opacity: 0;  
+      transition: all 0.5s ease;  
+      z-index: 1000;  
+    }  
+    #successBar.show {  
+      top: 20px;  
+      opacity: 1;  
+    }  
 
-    @keyframes rgbBorder {
-      0% { border-image: linear-gradient(90deg, red, lime, blue) 1; }
-      50% { border-image: linear-gradient(90deg, magenta, cyan, yellow) 1; }
-      100% { border-image: linear-gradient(90deg, red, lime, blue) 1; }
-    }
-  </style>
-</head>
-<body>
-  <div class="form-container">
-    <h2>Join D4RK ORG</h2>
-    <form id="regForm">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+    .form-container {  
+      background: rgba(20,20,30,0.95);  
+      padding: 30px;  
+      border-radius: 15px;  
+      max-width: 400px;  
+      width: 100%;  
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);  
+      border: 1px solid rgba(255,255,255,0.1);  
+    }  
+    .form-container h2 {  
+      text-align: center;  
+      margin-bottom: 20px;  
+      background: linear-gradient(90deg, #ff00cc, #00ffff);  
+      -webkit-background-clip: text;  
+      -webkit-text-fill-color: transparent;  
+      font-size: 26px;  
+    }  
+    label {  
+      display: block;  
+      margin: 8px 0 5px;  
+      font-size: 14px;  
+      color: #bbb;  
+    }  
+    input {  
+      width: 100%;  
+      padding: 12px;  
+      border-radius: 8px;  
+      border: none;  
+      margin-bottom: 15px;  
+      background: #2a2a3c;  
+      color: #fff;  
+      font-size: 14px;  
+    }  
+    button {  
+      width: 100%;  
+      padding: 12px;  
+      background: linear-gradient(90deg, #ff00cc, #00ffff);  
+      border: none;  
+      color: white;  
+      font-size: 16px;  
+      font-weight: bold;  
+      border-radius: 8px;  
+      cursor: pointer;  
+      transition: 0.3s;  
+    }  
+    button:hover {  
+      opacity: 0.8;  
+    }  
+  </style>  
+</head>  
+<body>  
 
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" min="10" max="99" required>
+  <!-- ✅ Success bar -->
+  <div id="successBar">✅ Registration Successful!</div>  
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+  <div class="form-container">  
+    <h2>Join D4RK ORG</h2>  
+    <form id="regForm">  
+      <label for="name">Full Name</label>  
+      <input type="text" id="name" name="name" required>  
 
-      <label for="ign">In-Game Name</label>
-      <input type="text" id="ign" name="ign" required>
+      <label for="age">Age</label>  
+      <input type="number" id="age" name="age" min="10" max="99" required>  
 
-      <label for="id">BGMI ID</label>
-      <input type="text" id="id" name="id" required>
+      <label for="ign">In-Game Name</label>  
+      <input type="text" id="ign" name="ign" required>  
 
-      <label for="contact">Contact Number</label>
-      <input type="tel" id="contact" name="contact" required>
+      <label for="id">BGMI ID</label>  
+      <input type="text" id="id" name="id" required>  
 
-      <button type="submit">Register</button>
-    </form>
-  </div>
+      <label for="contact">Contact Number</label>  
+      <input type="tel" id="contact" name="contact" required>  
 
-  <!-- Popup Message -->
-  <div class="popup" id="popupBox">✅ Registration Completed!</div>
+      <button type="submit" id="registerBtn">Register</button>  
+    </form>  
+  </div>  
 
-  <script>
-    const form = document.getElementById("regForm");
-    const popup = document.getElementById("popupBox");
+  <script>  
+    const form = document.getElementById("regForm");  
+    const successBar = document.getElementById("successBar");  
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+    form.addEventListener("submit", function(e) {  
+      e.preventDefault();  
 
-      const data = {
-        name: document.getElementById("name").value,
-        age: document.getElementById("age").value,
-        email: document.getElementById("email").value,
-        ign: document.getElementById("ign").value,
-        id: document.getElementById("id").value,
-        contact: document.getElementById("contact").value
-      };
+      const data = {  
+        name: document.getElementById("name").value,  
+        age: document.getElementById("age").value,  
+        ign: document.getElementById("ign").value,  
+        id: document.getElementById("id").value,  
+        contact: document.getElementById("contact").value  
+      };  
 
-      // Replace this with your SheetDB endpoint
-      fetch("https://sheetdb.io/api/v1/jofon50m4oyz9", {
-        method: "POST",
-        body: JSON.stringify({ data: data }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(res => res.json())
-      .then(res => {
-        popup.style.display = "block";
-        form.reset();
+      // ✅ Show success instantly  
+      successBar.classList.add("show");  
+      setTimeout(() => {  
+        successBar.classList.remove("show");  
+      }, 5000); // fade away after 5 sec  
 
-        setTimeout(() => {
-          popup.style.display = "none";
-        }, 5000);
-      })
-      .catch(err => alert("Network Error: " + err));
-    });
-  </script>
-</body>
+      form.reset();  
+
+      // ✅ Send data to SheetDB in background  
+      fetch("https://sheetdb.io/api/v1/jofon50m4oyz9", {  
+        method: "POST",  
+        body: JSON.stringify({ data: data }),  
+        headers: {  
+          "Content-Type": "application/json"  
+        }  
+      })  
+      .then(res => res.json())  
+      .then(res => console.log("Saved:", res))  
+      .catch(err => console.error("Network Error:", err));  
+    });  
+  </script>  
+</body>  
 </html>
-
-
-
